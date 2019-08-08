@@ -4,11 +4,12 @@ namespace IntermediateExercises
 {
     public class Stopwatch
     {
+        public DateTime Start { get; set; }
 
         //provide method to start the stopwatch
         public void StartTime()
         {
-            DateTime start = DateTime.Now;
+            Console.WriteLine(Start);
         }
 
         //provide method to stop the stopwatch
@@ -25,8 +26,9 @@ namespace IntermediateExercises
     {
         static void Main(string[] args)
         {
-            Stopwatch stopWatch = new Stopwatch();
+            Stopwatch stopWatch = new Stopwatch() { Start = DateTime.Now };
             stopWatch.StartTime();
+     
         }
     }
 }
