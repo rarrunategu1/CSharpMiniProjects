@@ -56,13 +56,27 @@ namespace IntermediateExercises
                 }
             }
 
-            /*Console.WriteLine("Enter 'stop' to stop your time: ");
-            string stopInput = Console.ReadLine();
-            else if(stopInput == "stop")
+            while (true)
             {
-                Stopwatch stopWatch = new Stopwatch() { Stop = DateTime.Now };
-                stopWatch.StopTime();
-            }*/
+                Console.WriteLine("Enter 'stop' to stop your time: ");
+                string stopInput = Console.ReadLine();
+
+                if (stopInput == "stop")
+                {
+                    Stopwatch stopWatch = new Stopwatch() { Stop = DateTime.Now };
+                    stopWatch.StopTime();
+                    break;
+                }
+                else if (stopInput == "start")
+                {
+                    throw new System.InvalidOperationException("Invalid input.  The stopwatch has already been started");
+                
+                }
+                else if (String.IsNullOrWhiteSpace(stopInput))
+                {
+                    return;
+                }
+            }
 
         }
     }
