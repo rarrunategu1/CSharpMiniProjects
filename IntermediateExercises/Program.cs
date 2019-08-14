@@ -5,6 +5,7 @@ namespace IntermediateExercises
     public class Stopwatch
     {
         public DateTime Start { get; set; }
+        public DateTime Stop { get; set; }
 
         //provide method to start the stopwatch
         public void StartTime()
@@ -13,6 +14,10 @@ namespace IntermediateExercises
         }
 
         //provide method to stop the stopwatch
+        public void StopTime()
+        {
+            Console.WriteLine(Stop);
+        }
 
         //duration between start and stop in TimeSpand
 
@@ -26,9 +31,39 @@ namespace IntermediateExercises
     {
         static void Main(string[] args)
         {
-            Stopwatch stopWatch = new Stopwatch() { Start = DateTime.Now };
-            stopWatch.StartTime();
-     
+            while (true)
+            {
+                Console.WriteLine("To start the stopwatch simply enter 'start' or Press enter to escape the program: ");
+                string startInput = Console.ReadLine();
+
+               
+                if (startInput == "start")
+                { 
+                    Stopwatch stopwatch = new Stopwatch() { Start = DateTime.Now };
+                    stopwatch.StartTime();
+                    break;
+                }
+                else if (startInput == "stop")
+                {   
+                    Console.WriteLine("You must start the stopwatch before you stop it.");
+                    Console.WriteLine();
+                    continue;
+                
+                }
+                else if (String.IsNullOrWhiteSpace(startInput))
+                {
+                    return;
+                }
+            }
+
+            /*Console.WriteLine("Enter 'stop' to stop your time: ");
+            string stopInput = Console.ReadLine();
+            else if(stopInput == "stop")
+            {
+                Stopwatch stopWatch = new Stopwatch() { Stop = DateTime.Now };
+                stopWatch.StopTime();
+            }*/
+
         }
     }
 }
